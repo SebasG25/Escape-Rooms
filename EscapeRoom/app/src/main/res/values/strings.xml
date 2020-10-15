@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">EscapeRoom</string>
+    <string-array name="pasos_lobby">
+        <item></item>
+        <item>Paso 3</item>
+        <item>Paso 1</item>
+        <item>Paso 2</item>
+    </string-array>
+</resources>

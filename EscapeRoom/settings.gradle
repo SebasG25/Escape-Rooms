@@ -1,0 +1,2 @@
+rootProject.name='EscapeRoom'
+include ':app'

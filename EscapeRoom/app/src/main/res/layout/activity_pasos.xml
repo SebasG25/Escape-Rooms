@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Pasos">
+
+    <TextView
+        android:id="@+id/tv_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/asap"
+        android:text="Dianellita"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_usuario"
+        android:layout_width="43dp"
+        android:layout_height="37dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_nickname"
+        app:layout_constraintEnd_toStartOf="@+id/tv_nickname"
+        app:layout_constraintTop_toTopOf="@+id/tv_nickname"
+        app:srcCompat="@drawable/ic_user" />
+
+    <Spinner
+        android:id="@+id/s_paso1"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_ordenar"
+        app:layout_constraintStart_toStartOf="@+id/tv_ordenar"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ordenar" />
+
+    <Spinner
+        android:id="@+id/s_paso2"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="@+id/s_paso1"
+        app:layout_constraintStart_toStartOf="@+id/s_paso1"
+        app:layout_constraintTop_toBottomOf="@+id/s_paso1" />
+
+    <Spinner
+        android:id="@+id/s_paso3"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="@+id/s_paso2"
+        app:layout_constraintStart_toStartOf="@+id/s_paso2"
+        app:layout_constraintTop_toBottomOf="@+id/s_paso2" />
+
+    <TextView
+        android:id="@+id/tv_ordenar"
+        android:layout_width="341dp"
+        android:layout_height="58dp"
+        android:fontFamily="@font/asap"
+        android:gravity="center"
+        android:text="Ordena los pasos para lograr tu escape"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.11" />
+
+    <Button
+        android:id="@+id/b_terminar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/roundedbutton"
+        android:fontFamily="@font/asap"
+        android:text="Terminar"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/s_paso3"
+        app:layout_constraintStart_toStartOf="@+id/s_paso3"
+        app:layout_constraintTop_toBottomOf="@+id/s_paso3" />
+
+    <TextView
+        android:id="@+id/tv_paso1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/asap"
+        android:text="Paso #1"
+        android:textColor="#F44336"
+        app:layout_constraintBottom_toTopOf="@+id/s_paso1"
+        app:layout_constraintEnd_toEndOf="@+id/s_paso1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/s_paso1" />
+
+    <TextView
+        android:id="@+id/tv_paso2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/asap"
+        android:text="Paso #2"
+        android:textColor="#F44336"
+        app:layout_constraintBottom_toTopOf="@+id/s_paso2"
+        app:layout_constraintEnd_toEndOf="@+id/s_paso2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/s_paso2" />
+
+    <TextView
+        android:id="@+id/tv_paso3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/asap"
+        android:text="Paso #3"
+        android:textColor="#F44336"
+        app:layout_constraintBottom_toTopOf="@+id/s_paso3"
+        app:layout_constraintEnd_toEndOf="@+id/s_paso3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/s_paso3" />
+</androidx.constraintlayout.widget.ConstraintLayout>
