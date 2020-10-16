@@ -11,8 +11,8 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    static final String correo = "chzdiane22@gmail.com";
-    static final String contrasena = "123abc";
+    static final String CORREO = "chzdiane22@gmail.com";
+    static final String CONTRASENA = "123abc";
     EditText et_Email, et_Contraseña;
     Button b_Continuar;
 
@@ -32,13 +32,13 @@ public class MainActivity extends AppCompatActivity {
     public void comenzarJuego(View view) {
         AlertDialog.Builder alerta = new AlertDialog.Builder(getApplicationContext());
         String correoIngresado = et_Email.getText().toString().trim();
-        String contrasenaIngresada = et_Contraseña.getText().toString().trim();
-        if(correoIngresado == "" || contrasenaIngresada == "") {
+        String contrasenaIngresada = et_Contraseña.getText().toString();
+        if(correoIngresado.equals("")|| contrasenaIngresada.equals("")) {
             alerta.setTitle("Error");
             alerta.setMessage("Digíte todos los datos solicitados");
             alerta.show();
         }
-        else if(correoIngresado == correo && contrasenaIngresada == contrasena){
+        else if(correoIngresado.equals(CORREO) && contrasenaIngresada.equals(CONTRASENA)){
             Intent intent = new Intent(getApplicationContext(), Tematica.class);
             startActivity(intent);
         }else{
