@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         alerta.setPositiveButton("Reintentar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                dialog.dismiss();
             }
         });
         String correoIngresado = et_Email.getText().toString().trim();
@@ -44,14 +44,16 @@ public class MainActivity extends AppCompatActivity {
         if(correoIngresado.equals("")|| contrasenaIngresada.equals("")) {
 
             alerta.setMessage("Digíte todos los datos solicitados");
-            alerta.show();
+            AlertDialog dialogo = alerta.create();
+            dialogo.show();
         }
         else if(correoIngresado.equals(CORREO) && contrasenaIngresada.equals(CONTRASENA)){
             Intent intent = new Intent(getApplicationContext(), Tematica.class);
             startActivity(intent);
         }else{
+            AlertDialog dialogo = alerta.create();
             alerta.setMessage("Datos erróneos");
-            alerta.show();
+            dialogo.show();
         }
 
     }
