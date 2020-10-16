@@ -3,6 +3,7 @@ package com.example.escaperoom;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -31,10 +32,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void comenzarJuego(View view) {
         AlertDialog.Builder alerta = new AlertDialog.Builder(getApplicationContext());
+        alerta.setTitle("Error");
+        alerta.setPositiveButton("Reintentar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
         String correoIngresado = et_Email.getText().toString().trim();
         String contrasenaIngresada = et_Contraseña.getText().toString();
         if(correoIngresado.equals("")|| contrasenaIngresada.equals("")) {
-            alerta.setTitle("Error");
+
             alerta.setMessage("Digíte todos los datos solicitados");
             alerta.show();
         }
@@ -42,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), Tematica.class);
             startActivity(intent);
         }else{
-            alerta.setTitle("Error");
             alerta.setMessage("Datos erróneos");
             alerta.show();
         }
