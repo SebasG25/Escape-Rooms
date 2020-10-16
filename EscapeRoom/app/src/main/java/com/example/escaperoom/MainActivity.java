@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,29 +32,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void comenzarJuego(View view) {
-        AlertDialog.Builder alerta = new AlertDialog.Builder(getApplicationContext());
-        alerta.setTitle("Error");
-        alerta.setPositiveButton("Reintentar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
         String correoIngresado = et_Email.getText().toString().trim();
         String contrasenaIngresada = et_Contraseña.getText().toString();
-        if(correoIngresado.equals("")|| contrasenaIngresada.equals("")) {
 
-            alerta.setMessage("Digíte todos los datos solicitados");
-            AlertDialog dialogo = alerta.create();
-            dialogo.show();
+        if(correoIngresado.equals("") || contrasenaIngresada.equals("")) {
+            Toast toast = Toast.makeText(getApplicationContext(), "Complete datos de ingreso", Toast.LENGTH_LONG);
+            toast.show();
         }
-        else if(correoIngresado.equals(CORREO) && contrasenaIngresada.equals(CONTRASENA)){
+        else if(correoIngresado.equals(CORREO) && contrasenaIngresada.equals(CONTRASENA)) {
             Intent intent = new Intent(getApplicationContext(), Tematica.class);
             startActivity(intent);
-        }else{
-            AlertDialog dialogo = alerta.create();
-            alerta.setMessage("Datos erróneos");
-            dialogo.show();
+        }
+        else {
+            Toast toast = Toast.makeText(getApplicationContext(), "Datos de ingreso erroneos", Toast.LENGTH_LONG);
+            toast.show();
         }
 
     }
