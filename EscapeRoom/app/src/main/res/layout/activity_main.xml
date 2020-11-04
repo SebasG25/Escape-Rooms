@@ -114,7 +114,7 @@
         android:layout_marginTop="50dp"
         android:background="@drawable/roundedbutton"
         android:fontFamily="@font/asap"
-        android:onClick="comenzarJuego"
+        android:onClick="conectar"
         android:text="Continuar"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/et_Contraseña"
