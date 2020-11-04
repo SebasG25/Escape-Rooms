@@ -16,17 +16,20 @@
         android:hint="E-mail"
         android:inputType="textEmailAddress"
         android:textColor="#000000"
+        android:drawableStart="@drawable/ic_email"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45" />
+        app:layout_constraintVertical_bias="0.45"
+        />
 
     <EditText
         android:id="@+id/et_Contraseña"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:drawableStart="@drawable/ic_lock"
         android:ems="10"
         android:fontFamily="@font/asap"
         android:gravity="center"
@@ -111,13 +114,42 @@
         android:id="@+id/b_Continuar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/roundedbutton"
         android:fontFamily="@font/asap"
         android:onClick="conectar"
         android:text="Continuar"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/et_Contraseña"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/et_Contraseña"
         app:layout_constraintTop_toBottomOf="@+id/et_Contraseña" />
+
+    <TextView
+        android:id="@+id/tvPregunta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/asap"
+        android:text="¿Aún no estás registrado?"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.34"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/b_Continuar" />
+
+    <TextView
+        android:id="@+id/tvRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/asap"
+        android:onClick="Registro"
+        android:text="Regístrate"
+        android:textColor="#F44336"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.086"
+        app:layout_constraintStart_toEndOf="@+id/tvPregunta"
+        app:layout_constraintTop_toBottomOf="@+id/b_Continuar" />
 </androidx.constraintlayout.widget.ConstraintLayout>
