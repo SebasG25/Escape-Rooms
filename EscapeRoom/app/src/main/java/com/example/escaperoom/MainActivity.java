@@ -27,14 +27,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-
-    static final String CORREO = "chzdiane22@gmail.com";
-    static final String CONTRASENA = "123abc";
     EditText et_Email, et_Contraseña;
     TextView tvRegistro;
     Button b_Continuar;
-    String url = "http://192.168.1.3/bdEscapeRooms/validar_usuario.php";
-    SpannableString mitextoU = new SpannableString("Regístrate");
+    String URL = "http://192.168.1.1/bdescaperooms/validar_usuario.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,13 +49,8 @@ public class MainActivity extends AppCompatActivity {
         tvRegistro.setText(mitextoU);
     }
 
-    public void comenzarJuego(View view) {
-        validarUsuario();
-    }
-
     private void validarUsuario() {
-        RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
@@ -87,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-
+        RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
         requestQueue.add(stringRequest);
     }
 
@@ -96,8 +87,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Registro(View view) {
-        //Crear layout de registro
-        Intent intent = new Intent(getApplicationContext(), Tematica.class);
+        Intent intent = new Intent(getApplicationContext(), Registro.class);
         startActivity(intent);
     }
 }

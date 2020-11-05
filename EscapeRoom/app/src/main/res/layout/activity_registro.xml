@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Registro">
+
+    <Button
+        android:id="@+id/b_Registrarse"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/roundedbutton"
+        android:fontFamily="@font/asap"
+        android:onClick="registrarse"
+        android:text="Registrarse"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/et_ContraseñaR"
+        app:layout_constraintStart_toStartOf="@+id/et_ContraseñaR"
+        app:layout_constraintTop_toBottomOf="@+id/et_ContraseñaR" />
+
+    <EditText
+        android:id="@+id/et_ContraseñaR"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:drawableStart="@drawable/ic_lock"
+        android:ems="10"
+        android:fontFamily="@font/asap"
+        android:gravity="center"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/et_FechaNacimientoR"
+        app:layout_constraintStart_toStartOf="@+id/et_FechaNacimientoR"
+        app:layout_constraintTop_toBottomOf="@+id/et_FechaNacimientoR" />
+
+    <TextView
+        android:id="@+id/tv_ContraseñaR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/asap"
+        android:text="Contraseña"
+        android:textColor="#F44336"
+        app:layout_constraintBottom_toTopOf="@+id/et_ContraseñaR"
+        app:layout_constraintEnd_toEndOf="@+id/et_ContraseñaR"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/et_ContraseñaR" />
+
+    <TextView
+        android:id="@+id/tv_FechaNacimientoR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/asap"
+        android:text="Fecha de nacimiento"
+        android:textColor="#F44336"
+        app:layout_constraintBottom_toTopOf="@+id/et_FechaNacimientoR"
+        app:layout_constraintEnd_toEndOf="@+id/et_FechaNacimientoR"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/et_FechaNacimientoR" />
+
+    <EditText
+        android:id="@+id/et_NicknameR"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:fontFamily="@font/asap"
+        android:gravity="center"
+        android:hint="Nickname"
+        android:inputType="textPersonName"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/et_ApellidoR"
+        app:layout_constraintStart_toStartOf="@+id/et_ApellidoR"
+        app:layout_constraintTop_toBottomOf="@+id/et_ApellidoR" />
+
+    <TextView
+        android:id="@+id/tv_NicknameR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/asap"
+        android:text="Nickname"
+        android:textColor="#F44336"
+        app:layout_constraintBottom_toTopOf="@+id/et_NicknameR"
+        app:layout_constraintEnd_toEndOf="@+id/et_NicknameR"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/et_NicknameR" />
+
+    <EditText
+        android:id="@+id/et_ApellidoR"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:fontFamily="@font/asap"
+        android:gravity="center"
+        android:hint="Apellido"
+        android:inputType="textPersonName"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/et_NombreR"
+        app:layout_constraintStart_toStartOf="@+id/et_NombreR"
+        app:layout_constraintTop_toBottomOf="@+id/et_NombreR" />
+
+    <TextView
+        android:id="@+id/tv_NombreR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/asap"
+        android:text="Nombre"
+        android:textColor="#F44336"
+        app:layout_constraintBottom_toTopOf="@+id/et_NombreR"
+        app:layout_constraintEnd_toEndOf="@+id/et_NombreR"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/et_NombreR" />
+
+    <TextView
+        android:id="@+id/tv_ApellidoR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/asap"
+        android:text="Apellido"
+        android:textColor="#F44336"
+        app:layout_constraintBottom_toTopOf="@+id/et_ApellidoR"
+        app:layout_constraintEnd_toEndOf="@+id/et_ApellidoR"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/et_ApellidoR" />
+
+    <TextView
+        android:id="@+id/tv_EmailR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/asap"
+        android:text="E-mail"
+        android:textColor="#F44336"
+        app:layout_constraintBottom_toTopOf="@+id/et_EmailR"
+        app:layout_constraintEnd_toEndOf="@+id/et_EmailR"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/et_EmailR" />
+
+    <EditText
+        android:id="@+id/et_EmailR"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:drawableStart="@drawable/ic_email"
+        android:ems="10"
+        android:fontFamily="@font/asap"
+        android:gravity="center"
+        android:hint="E-mail"
+        android:inputType="textEmailAddress"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.15" />
+
+    <TextView
+        android:id="@+id/tv_Registrate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/asap"
+        android:text="Regístrate"
+        android:textColor="#000000"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_NombreR"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:fontFamily="@font/asap"
+        android:gravity="center"
+        android:hint="Nombre"
+        android:inputType="textPersonName"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/et_EmailR"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/et_EmailR"
+        app:layout_constraintTop_toBottomOf="@+id/et_EmailR" />
+
+    <EditText
+        android:id="@+id/et_FechaNacimientoR"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:fontFamily="@font/asap"
+        android:gravity="center"
+        android:hint="AAAA-MM-DD"
+        android:inputType="date"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/et_NicknameR"
+        app:layout_constraintStart_toStartOf="@+id/et_NicknameR"
+        app:layout_constraintTop_toBottomOf="@+id/et_NicknameR" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
