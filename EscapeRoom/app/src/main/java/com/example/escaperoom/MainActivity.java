@@ -3,6 +3,7 @@ package com.example.escaperoom;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.VoiceInteractor;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,6 +23,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.StringReader;
 import java.util.HashMap;
 import java.util.Map;
@@ -30,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
     EditText et_Email, et_Contraseña;
     TextView tvRegistro;
     Button b_Continuar;
-    String URL = "http://192.168.1.1/bdescaperooms/validar_usuario.php";
+
+    String nickname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,14 +55,22 @@ public class MainActivity extends AppCompatActivity {
         tvRegistro.setText(mitextoU);
     }
 
-    private void validarUsuario() {
+    private void validarUsuario(String URL) {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
                 if(!response.isEmpty()) {
-                    Intent intent = new Intent(getApplicationContext(), Tematica.class);
-                    startActivity(intent);
+                    try {
+                        JSONObject obj = new JSONObject(response);
+                        nickname = obj.getString("nickname");
+
+                        Intent intent = new Intent(getApplicationContext(), Tematica.class);
+                        intent.putExtra("nickname", nickname);
+                        startActivity(intent);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
                 else {
                     Toast toast = Toast.makeText(getApplicationContext(), "Datos de ingreso erroneos", Toast.LENGTH_SHORT);
@@ -83,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void conectar(View view) {
-        validarUsuario();
+        validarUsuario("http://192.168.1.1/bdescaperooms/validar_usuario.php");
     }
 
     public void Registro(View view) {

@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:fontFamily="@font/asap"
-        android:text="Dianellita"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.15"
@@ -45,7 +44,7 @@
         app:layout_constraintVertical_bias="0.1" />
 
     <Button
-        android:id="@+id/b_opcion1"
+        android:id="@+id/b_tematica1"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:background="@drawable/roundedbutton"
@@ -61,7 +60,7 @@
         app:layout_constraintVertical_bias="0.35" />
 
     <Button
-        android:id="@+id/b_opcion2"
+        android:id="@+id/b_tematica2"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="60dp"
@@ -69,12 +68,12 @@
         android:fontFamily="@font/asap"
         android:text="Casa Embrujada"
         android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/b_opcion1"
-        app:layout_constraintStart_toStartOf="@+id/b_opcion1"
-        app:layout_constraintTop_toBottomOf="@+id/b_opcion1" />
+        app:layout_constraintEnd_toEndOf="@+id/b_tematica1"
+        app:layout_constraintStart_toStartOf="@+id/b_tematica1"
+        app:layout_constraintTop_toBottomOf="@+id/b_tematica1" />
 
     <Button
-        android:id="@+id/b_opcion3"
+        android:id="@+id/b_tematica3"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="60dp"
@@ -82,8 +81,8 @@
         android:fontFamily="@font/asap"
         android:text="Restaurante"
         android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/b_opcion2"
-        app:layout_constraintStart_toStartOf="@+id/b_opcion2"
-        app:layout_constraintTop_toBottomOf="@+id/b_opcion2" />
+        app:layout_constraintEnd_toEndOf="@+id/b_tematica2"
+        app:layout_constraintStart_toStartOf="@+id/b_tematica2"
+        app:layout_constraintTop_toBottomOf="@+id/b_tematica2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
