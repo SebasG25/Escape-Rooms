@@ -73,8 +73,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
                 else {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Datos de ingreso erroneos", Toast.LENGTH_SHORT);
-                    toast.show();
+                    Toast.makeText(getApplicationContext(), "Datos de ingreso erroneos", Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {

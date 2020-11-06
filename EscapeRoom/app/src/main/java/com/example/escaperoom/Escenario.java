@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Escenario extends AppCompatActivity {
 
@@ -24,6 +25,8 @@ public class Escenario extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         nickname = bundle.getString("nickname");
         tv_nickname.setText(nickname);
+
+        Toast.makeText(getApplicationContext(), bundle.getString("tematica"), Toast.LENGTH_SHORT).show();
     }
 
     private void connect(){

@@ -55,6 +55,25 @@ public class Tematica extends AppCompatActivity {
     public void escogerEscenario(View view) {
         Intent intent = new Intent(getApplicationContext(), Escenario.class);
         intent.putExtra("nickname", nickname);
+
+        switch(view.getId())
+        {
+            case R.id.b_tematica1:
+                intent.putExtra("tematica", b_tematica1.getText().toString());
+                break;
+            case R.id.b_tematica2:
+                intent.putExtra("tematica", b_tematica2.getText().toString());
+                break;
+            case R.id.b_tematica3:
+                intent.putExtra("tematica", b_tematica3.getText().toString());
+                break;
+            case R.id.b_tematica4:
+                intent.putExtra("tematica", b_tematica4.getText().toString());
+                break;
+            default:
+                throw new RuntimeException("Unknow button ID");
+        }
+
         startActivity(intent);
     }
 
