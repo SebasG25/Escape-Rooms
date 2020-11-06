@@ -13,6 +13,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -28,7 +29,7 @@ public class Tematica extends AppCompatActivity {
     TextView tv_nickname;
 
     String nickname = "";
-    private ArrayList<String> tematicas;
+    ArrayList<String> tematicas = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,32 +59,40 @@ public class Tematica extends AppCompatActivity {
     }
 
     private void cargarTematicas(String URL) {
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
             @Override
-            public void onResponse(String response) {
+            public void onResponse(JSONObject response) {
+                try {
+                    JSONArray jsonArray = response.getJSONArray("tematicas");
 
-                if (!response.isEmpty()) {
-                    try {
-                        JSONObject obj = new JSONObject(response);
-                        JSONArray jsonArray = obj.getJSONArray("tematica");
-
-                        for(int i = 0; i < jsonArray.length(); i++) {
-                            JSONObject jsonObject = jsonArray.getJSONObject(i);
-                            tematicas.add(jsonObject.getString("tematica"));
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                    for(int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                        tematicas.add(jsonObject.getString("tematica"));
                     }
+
+                    mostrarTematicas();
                 }
+                catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(Tematica.this, error.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
         RequestQueue requestQueue = Volley.newRequestQueue(Tematica.this);
-        requestQueue.add(stringRequest);
+        requestQueue.add(request);
+    }
+
+    private void mostrarTematicas() {
+        b_tematica1.setText(tematicas.get(0));
+        b_tematica2.setText(tematicas.get(1));
+        b_tematica3.setText(tematicas.get(2));
+        b_tematica4.setText(tematicas.get(3));
     }
 }
