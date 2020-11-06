@@ -56,43 +56,51 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void validarUsuario(String URL) {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
 
-                if(!response.isEmpty()) {
-                    try {
-                        JSONObject obj = new JSONObject(response);
-                        nickname = obj.getString("nickname");
+        String emailRecibido = et_Email.getText().toString().trim();
+        String contrasenaRecibida= et_Contraseña.getText().toString();
 
-                        Intent intent = new Intent(getApplicationContext(), Tematica.class);
-                        intent.putExtra("nickname", nickname);
-                        startActivity(intent);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+        if(!(emailRecibido.isEmpty() || contrasenaRecibida.isEmpty())){
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+
+                    if(!response.isEmpty()) {
+                        try {
+                            JSONObject obj = new JSONObject(response);
+                            nickname = obj.getString("nickname");
+
+                            Intent intent = new Intent(getApplicationContext(), Tematica.class);
+                            intent.putExtra("nickname", nickname);
+                            startActivity(intent);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(), "Datos de ingreso erroneos", Toast.LENGTH_SHORT).show();
                     }
                 }
-                else {
-                    Toast.makeText(getApplicationContext(), "Datos de ingreso erroneos", Toast.LENGTH_SHORT).show();
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(MainActivity.this, error.toString(), Toast.LENGTH_LONG).show();
                 }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(MainActivity.this, error.toString(), Toast.LENGTH_LONG).show();
-            }
-        }) {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> parametros = new HashMap<String, String>();
-                parametros.put("correo_electronico", et_Email.getText().toString());
-                parametros.put("contrasena", et_Contraseña.getText().toString());
-                return parametros;
-            }
-        };
+            }) {
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> parametros = new HashMap<String, String>();
+                    parametros.put("correo_electronico", et_Email.getText().toString());
+                    parametros.put("contrasena", et_Contraseña.getText().toString());
+                    return parametros;
+                }
+            };
 
-        RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
-        requestQueue.add(stringRequest);
+            RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
+            requestQueue.add(stringRequest);
+        }else{
+            Toast.makeText(this, "Por favor llena todos los campos", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void conectar(View view) {
