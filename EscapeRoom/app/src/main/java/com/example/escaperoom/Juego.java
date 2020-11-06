@@ -1,15 +1,27 @@
 package com.example.escaperoom;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Random;
+
 public class Juego extends AppCompatActivity {
+
+    TextView tv_nickname;
+
+    View layout;
 
     Button b_punto1, b_punto2, b_punto3, b_continuar;
 
@@ -31,7 +43,19 @@ public class Juego extends AppCompatActivity {
         tematica = bundle.getString("tematica");
         escenario = bundle.getString("escenario");
 
-        Toast.makeText(getApplicationContext(), nickname + tematica + escenario, Toast.LENGTH_SHORT).show();
+        if(escenario.equals("Sótano")) {
+            layout.setBackground(getDrawable(R.drawable.sotano));
+        }
+        else if (escenario.equals("Salón de clases")) {
+            layout.setBackground(getDrawable(R.drawable.clases));
+        }
+        else {
+            layout.setBackground(getDrawable(R.drawable.lobby));
+        }
+
+        tv_nickname.setText(nickname);
+
+        puntos();
     }
 
     private void connect() {
@@ -39,6 +63,8 @@ public class Juego extends AppCompatActivity {
         b_punto2 = findViewById(R.id.b_punto2);
         b_punto3 = findViewById(R.id.b_punto3);
         b_continuar = findViewById(R.id.b_continuar);
+        layout = findViewById(R.id.layout);
+        tv_nickname = findViewById(R.id.tv_nickname);
     }
 
     public void pregunta1(View view) {
@@ -110,5 +136,22 @@ public class Juego extends AppCompatActivity {
     public void continuar(View view) {
         Intent intent = new Intent(getApplicationContext(), Pasos.class);
         startActivity(intent);
+    }
+
+    private void puntos() {
+        Random random = new Random();
+
+        ConstraintLayout cl = (ConstraintLayout) findViewById(R.id.layout);
+        ConstraintSet cs = new ConstraintSet();
+        cs.clone(cl);
+        cs.setHorizontalBias(R.id.b_punto1, ((float) 10 + random.nextInt(81))/100);
+        cs.setVerticalBias(R.id.b_punto1, ((float) 10 + random.nextInt(81))/100);
+        cs.applyTo(cl);
+        cs.setHorizontalBias(R.id.b_punto2, ((float) 10 + random.nextInt(81))/100);
+        cs.setVerticalBias(R.id.b_punto2, ((float) 10 + random.nextInt(81))/100);
+        cs.applyTo(cl);
+        cs.setHorizontalBias(R.id.b_punto3, ((float) 10 + random.nextInt(81))/100);
+        cs.setVerticalBias(R.id.b_punto3, ((float) 10 + random.nextInt(81))/100);
+        cs.applyTo(cl);
     }
 }

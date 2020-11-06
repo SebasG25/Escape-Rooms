@@ -27,7 +27,7 @@ public class Registro extends AppCompatActivity {
     EditText et_EmailR, et_NombreR, et_ApellidoR, et_NicknameR, et_FechaNacimientoR, et_ContraseñaR;
     Button b_Registrarse;
 
-    String URL = "http://192.168.1.3/bdescaperooms/insertar_usuario.php";
+    String URL = "http://192.168.1.1/bdescaperooms/insertar_usuario.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
