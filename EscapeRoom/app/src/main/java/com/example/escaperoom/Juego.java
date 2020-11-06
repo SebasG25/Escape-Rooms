@@ -7,10 +7,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class Juego extends AppCompatActivity {
 
     Button b_punto1, b_punto2, b_punto3, b_continuar;
+
+    String nickname = "", tematica = "", escenario = "";
+
     int count = 0;
     private static final int P1_ACTIVITY_REQUEST_CODE = 0;
     private static final int P2_ACTIVITY_REQUEST_CODE = 1;
@@ -21,6 +25,13 @@ public class Juego extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego);
         connect();
+
+        Bundle bundle = getIntent().getExtras();
+        nickname = bundle.getString("nickname");
+        tematica = bundle.getString("tematica");
+        escenario = bundle.getString("escenario");
+
+        Toast.makeText(getApplicationContext(), nickname + tematica + escenario, Toast.LENGTH_SHORT).show();
     }
 
     private void connect() {

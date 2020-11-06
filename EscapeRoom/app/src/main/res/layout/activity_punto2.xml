@@ -45,7 +45,7 @@
         app:layout_constraintVertical_bias="0.15" />
 
     <Button
-        android:id="@+id/b_tematica1"
+        android:id="@+id/b_escenario1"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:background="@drawable/roundedbutton"
@@ -61,7 +61,7 @@
         app:layout_constraintVertical_bias="0.35" />
 
     <Button
-        android:id="@+id/b_tematica2"
+        android:id="@+id/b_escenario2"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="60dp"
@@ -70,12 +70,12 @@
         android:onClick="opcion2"
         android:text="double"
         android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/b_tematica1"
-        app:layout_constraintStart_toStartOf="@+id/b_tematica1"
-        app:layout_constraintTop_toBottomOf="@+id/b_tematica1" />
+        app:layout_constraintEnd_toEndOf="@+id/b_escenario1"
+        app:layout_constraintStart_toStartOf="@+id/b_escenario1"
+        app:layout_constraintTop_toBottomOf="@+id/b_escenario1" />
 
     <Button
-        android:id="@+id/b_tematica3"
+        android:id="@+id/b_escenario3"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="60dp"
@@ -84,8 +84,8 @@
         android:onClick="opcion3"
         android:text="String"
         android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/b_tematica2"
-        app:layout_constraintStart_toStartOf="@+id/b_tematica2"
-        app:layout_constraintTop_toBottomOf="@+id/b_tematica2" />
+        app:layout_constraintEnd_toEndOf="@+id/b_escenario2"
+        app:layout_constraintStart_toStartOf="@+id/b_escenario2"
+        app:layout_constraintTop_toBottomOf="@+id/b_escenario2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

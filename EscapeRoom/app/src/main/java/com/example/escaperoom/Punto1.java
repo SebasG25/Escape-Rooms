@@ -23,9 +23,9 @@ public class Punto1 extends AppCompatActivity {
     }
 
     private void connect() {
-        b_opcion1 = findViewById(R.id.b_tematica1);
-        b_opcion2 = findViewById(R.id.b_tematica2);
-        b_opcion3 = findViewById(R.id.b_tematica3);
+        b_opcion1 = findViewById(R.id.b_escenario1);
+        b_opcion2 = findViewById(R.id.b_escenario2);
+        b_opcion3 = findViewById(R.id.b_escenario3);
     }
 
     public void opcion1(View view) {
