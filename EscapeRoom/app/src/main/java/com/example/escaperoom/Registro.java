@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +19,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,6 +34,7 @@ public class Registro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
         connect();
+        dateFormat();
     }
 
     private void connect() {
@@ -41,6 +45,72 @@ public class Registro extends AppCompatActivity {
         et_FechaNacimientoR = findViewById(R.id.et_FechaNacimientoR);
         et_ContraseñaR = findViewById(R.id.et_ContraseñaR);
         b_Registrarse = findViewById(R.id.b_Registrarse);
+    }
+
+    private void dateFormat(){
+        et_FechaNacimientoR.addTextChangedListener(new TextWatcher() {
+
+            private String current = "";
+            private String yyyymmdd = "AAAAMMDD";
+            private Calendar cal = Calendar.getInstance();
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (!s.toString().equals(current)) {
+                    String clean = s.toString().replaceAll("[^\\d.]", "");
+                    String cleanC = current.replaceAll("[^\\d.]", "");
+
+                    int cl = clean.length();
+                    int sel = cl;
+                    for (int i = 4; i <= cl && i < 8; i += 2) {
+                        sel++;
+                    }
+                    //Fix for pressing delete next to a forward slash
+                    if (clean.equals(cleanC)) sel--;
+
+                    if (clean.length() < 8) {
+                        clean = clean + yyyymmdd.substring(clean.length());
+                    } else {
+                        //This part makes sure that when we finish entering numbers
+                        //the date is correct, fixing it otherwise
+                        int year = Integer.parseInt(clean.substring(0, 4));
+                        int mon = Integer.parseInt(clean.substring(4, 6));
+                        int day = Integer.parseInt(clean.substring(6, 8));
+
+                        if (mon > 12) mon = 12;
+                        cal.set(Calendar.MONTH, mon - 1);
+
+                        year = (year < 1900) ? 1900 : (year > 2020) ? 2020 : year;
+                        cal.set(Calendar.YEAR, year);
+                        // ^ first set year for the line below to work correctly
+                        //with leap years - otherwise, date e.g. 29/02/2012
+                        //would be automatically corrected to 28/02/2012
+
+                        day = (day > cal.getActualMaximum(Calendar.DATE)) ? cal.getActualMaximum(Calendar.DATE) : day;
+                        clean = String.format("%02d%02d%02d", year, mon, day);
+                    }
+
+                    clean = String.format("%s/%s/%s", clean.substring(0, 4),
+                            clean.substring(4, 6),
+                            clean.substring(6, 8));
+
+                    sel = sel < 0 ? 0 : sel;
+                    current = clean;
+                    et_FechaNacimientoR.setText(current);
+                    et_FechaNacimientoR.setSelection(sel < current.length() ? sel : current.length());
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 
     public void registrarse(View view) {
@@ -75,5 +145,9 @@ public class Registro extends AppCompatActivity {
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
+
+
+
+
     }
 }
