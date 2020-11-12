@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Ajustes">
+
+    <TextView
+        android:id="@+id/tv_AjustesUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/asap"
+        android:text="Ajustes de usuario"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/et_EmailA"
+        app:layout_constraintEnd_toEndOf="@+id/et_EmailA"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/et_EmailA"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.49" />
+
+    <EditText
+        android:id="@+id/et_NuevaContraseñaA"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:drawableStart="@drawable/ic_lock"
+        android:ems="10"
+        android:fontFamily="@font/asap"
+        android:gravity="center"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/b_EliminarA"
+        app:layout_constraintStart_toStartOf="@+id/b_EliminarA"
+        app:layout_constraintTop_toBottomOf="@+id/b_EliminarA" />
+
+    <TextView
+        android:id="@+id/tv_NuevaContraseña"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/asap"
+        android:text="Nueva Contraseña"
+        android:textColor="#F44336"
+        app:layout_constraintBottom_toTopOf="@+id/et_NuevaContraseñaA"
+        app:layout_constraintEnd_toEndOf="@+id/et_NuevaContraseñaA"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/et_NuevaContraseñaA" />
+
+    <EditText
+        android:id="@+id/et_ContraseñaA"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:drawableStart="@drawable/ic_lock"
+        android:ems="10"
+        android:fontFamily="@font/asap"
+        android:gravity="center"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/et_EmailA"
+        app:layout_constraintStart_toStartOf="@+id/et_EmailA"
+        app:layout_constraintTop_toBottomOf="@+id/et_EmailA" />
+
+    <Button
+        android:id="@+id/b_EliminarA"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/roundedbutton"
+        android:fontFamily="@font/asap"
+        android:onClick="eliminar"
+        android:text="Eliminar"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/et_ContraseñaA"
+        app:layout_constraintStart_toStartOf="@+id/et_ContraseñaA"
+        app:layout_constraintTop_toBottomOf="@+id/et_ContraseñaA" />
+
+    <Button
+        android:id="@+id/b_ActualizarA"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/roundedbutton"
+        android:fontFamily="@font/asap"
+        android:onClick="actulizar"
+        android:text="Actualizar"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/et_NuevaContraseñaA"
+        app:layout_constraintStart_toStartOf="@+id/et_NuevaContraseñaA"
+        app:layout_constraintTop_toBottomOf="@+id/et_NuevaContraseñaA" />
+
+    <TextView
+        android:id="@+id/tv_ContraseñaA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/asap"
+        android:text="Contraseña"
+        android:textColor="#F44336"
+        app:layout_constraintBottom_toTopOf="@+id/et_ContraseñaA"
+        app:layout_constraintEnd_toEndOf="@+id/et_ContraseñaA"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/et_ContraseñaA" />
+
+    <EditText
+        android:id="@+id/et_EmailA"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_email"
+        android:ems="10"
+        android:fontFamily="@font/asap"
+        android:gravity="center"
+        android:hint="E-mail"
+        android:inputType="textEmailAddress"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.275" />
+
+    <TextView
+        android:id="@+id/tv_EmailA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/asap"
+        android:text="E-mail"
+        android:textColor="#F44336"
+        app:layout_constraintBottom_toTopOf="@+id/et_EmailA"
+        app:layout_constraintEnd_toEndOf="@+id/et_EmailA"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/et_EmailA" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

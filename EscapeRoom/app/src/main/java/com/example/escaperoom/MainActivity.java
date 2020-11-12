@@ -33,7 +33,7 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     EditText et_Email, et_Contraseña;
-    TextView tvRegistro;
+    TextView tvRegistro, tv_Ajustes;
     Button b_Continuar;
 
     String nickname;
@@ -53,6 +53,10 @@ public class MainActivity extends AppCompatActivity {
         SpannableString mitextoU = new SpannableString("Regístrate");
         mitextoU.setSpan(new UnderlineSpan(),0, mitextoU.length(), 0);
         tvRegistro.setText(mitextoU);
+        tv_Ajustes = findViewById(R.id.tv_Ajustes);
+        SpannableString spannableString = new SpannableString("Ajustes de usuario");
+        spannableString.setSpan(new UnderlineSpan(),0, spannableString.length(), 0);
+        tv_Ajustes.setText(spannableString);
     }
 
     private void validarUsuario(String URL) {
@@ -109,6 +113,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void Registro(View view) {
         Intent intent = new Intent(getApplicationContext(), Registro.class);
+        startActivity(intent);
+    }
+
+    public void ajustes(View view) {
+        Intent intent = new Intent(getApplicationContext(), Ajustes.class);
         startActivity(intent);
     }
 }
